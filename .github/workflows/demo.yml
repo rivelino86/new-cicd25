@@ -30,7 +30,7 @@ jobs:
 
   build_job:
     needs:
-      -  setup_job
+      - setup_job
       - deploy_job
     runs-on: ubuntu-latest
     steps:
@@ -39,8 +39,7 @@ jobs:
 
 
   deploy_job:
-    needs: setup_job
-      
+    # needs: setup_job  
     runs-on: ubuntu-latest
     steps:
       - name: Deploy step
