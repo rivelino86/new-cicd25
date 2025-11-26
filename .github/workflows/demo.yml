@@ -19,28 +19,29 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Create file
-        run: touch github-action.txt
+        run: |
+           touch github-action.txt
+           ls -la
+           cat README.md file
+           echo Hello World
 
-      - name: Print Hello world
-        run: echo "Hello world"
-
-      - name: Display README file
-        run: cat README.md
-
-
+    
   build_job:
     needs: 
       - setup_job
-      - deploy_job
-    runs-on: windows-latest
+    
+    runs-on: ubuntu-latest
     steps:
       - name: Display Hello
         run: echo "Hello from build job"
+      - name: Display the content on github github-action.txt
+        run: cat github-action.txt
+
 
 
   deploy_job:
-    needs: 
-      - setup_job
+    needs: build_job
+     
     runs-on: macos-latest
     steps:
       - name: Deploy step

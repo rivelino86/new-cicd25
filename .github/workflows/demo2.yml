@@ -2,7 +2,7 @@ name: Demo2
 
 on:
   push:
-    branches: main
+    branches: [main]
 
 jobs:
   build:
