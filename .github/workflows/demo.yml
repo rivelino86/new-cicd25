@@ -8,7 +8,7 @@ on:
   pull_request:
       branches: [main, dev]
   schedule:
-      - cron: "*/1 * * *"
+      - cron: " */1 * * * "
 
 jobs:
 
@@ -32,5 +32,5 @@ jobs:
     deploy_job:
      runs-on: ubuntu_latest
      steps:
-     - run: echo deploy
+     - run: echo hello mac
           
