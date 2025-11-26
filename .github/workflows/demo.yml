@@ -16,9 +16,15 @@ jobs:
             - name: Create file
               run:  |
                  touch github-action.txt
+                 echo form first job > github-action.txt
                  ls -la
                  echo "Hello World!"
-                 cat README.md 
+                 cat README.md
+            - name: upload artifact
+              uses: actions/upload-artifact@v4
+              with:
+                  name: my-file
+                  path: github-action.txt
             
               
     
@@ -29,6 +35,9 @@ jobs:
         steps:
             - name: displayhello world
               run: echo "Hello from windows"
+            -  uses: actions/download-artifact@v4
+               with:
+                  name: my-file
             
             - name: display github-action file
               run: cat github-action.txt
