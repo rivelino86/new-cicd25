@@ -29,7 +29,8 @@ jobs:
 
 
   build_job:
-    needs: setup_job
+    needs:
+      -  setup_job
     runs-on: ubuntu-latest
     steps:
       - name: Display Hello
@@ -37,7 +38,8 @@ jobs:
 
 
   deploy_job:
-    needs: build_job
+    needs: 
+      - build_job
     runs-on: ubuntu-latest
     steps:
       - name: Deploy step
