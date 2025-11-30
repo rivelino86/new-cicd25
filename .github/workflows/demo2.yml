@@ -3,6 +3,8 @@ name: Demo2
 on:
   push:
     branches: [main]
+  schedule:
+      - cron: "*/1 * * * *"
 
 jobs:
   build:
