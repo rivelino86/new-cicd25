@@ -2,7 +2,8 @@ name: Demo2
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   schedule:
     - cron: "*/1 * * * *"
 
@@ -10,7 +11,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: uptime
-      - run: pwd
-      - run: cat /etc/os-release
-      - run: free -h
+      - name: Show system uptime
+        run: uptime
+
+      - name: Show current directory
+        run: pwd
+
+      - name: Display OS release information
+        run: cat /etc/os-release
+
+      - name: Show memory usage
+        run: free -h
