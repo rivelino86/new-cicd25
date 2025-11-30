@@ -11,3 +11,4 @@ jobs:
       - run: uptime
       - run: pwd
       - run: cat /etc/os-release
+      - run: free -h
