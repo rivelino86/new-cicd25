@@ -3,13 +3,14 @@ on:
   push:
     branches:
      - dev
+     - main
   pull_request:
     branches: [main, dev]
   schedule:
     - cron: "*/1 * * * *"
 
-#env:
-  #region_name: us-east-1
+env:
+  region_name: us-east-1
     
 jobs:
     setup-job:
