@@ -6,6 +6,9 @@ on:
       - dev
   pull_request:
     branches: [main, dev]
+
+env:
+  region_name: us-east-1
     
 jobs:
     setup-job:
@@ -28,9 +31,8 @@ jobs:
             
               
     
-    builds-job:
-        needs: 
-            - setup-job
+    build-job:
+        needs: setup-job
         runs-on: ubuntu-latest
         steps:
             - name: displayhello world
@@ -45,7 +47,9 @@ jobs:
               
             
     deploy-job:
-        needs: builds-job
+        needs:
+        - build-job 
+        - setup-job 
         runs-on: macos-latest
         steps:
             - name: display hello world
